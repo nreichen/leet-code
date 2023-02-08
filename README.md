@@ -1,2 +1,2 @@
-# leet-code 💯
-A collection of my solutions to various LeetCode problems
+# leet-code
+A collection of my solutions to various LeetCode problems 💯💯💯
