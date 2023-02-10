@@ -11,24 +11,20 @@
  */
 class Solution {
 public:
-    //r: root
-    //s: subRoot
-    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
-        if (!root) return false;
-        return isEqual(root, subRoot) || isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
+    bool isSubtree(TreeNode* r, TreeNode* s) {
+        if (!r) return false;
+        return isEqual(r, s) || isSubtree(r->left, s) || isSubtree(r->right, s);
     }
-
+    
     bool isEqual(TreeNode* r, TreeNode* s) {
-        if (!r && !s) {
-            return true;
-        }
-        else if (!r || !s) {
-            return false;
-        }
-
+        if (!r && !s) return true;
+        else if (!r || !s) return false;
+        
         if (r->val != s->val) {
             return false;
         }
-        return isEqual(r->right, s->right) && isEqual(r->left, s->left);
+        else {
+            return isEqual(r->right, s->right) && isEqual(r->left, s->left);
+        }
     }
 };
