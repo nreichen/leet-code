@@ -4,7 +4,6 @@ public:
         int answer = 0;
         for (auto num: nums) {
             answer ^= num;
-            cout << answer << " ";
         }
         return answer;
     }
