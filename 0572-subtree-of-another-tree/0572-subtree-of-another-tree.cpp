@@ -13,18 +13,14 @@ class Solution {
 public:
     bool isSubtree(TreeNode* r, TreeNode* s) {
         if (!r) return false;
-        return isEqual(r, s) || isSubtree(r->left, s) || isSubtree(r->right, s);
+        return identicalTrees(r, s) || isSubtree(r->left, s) || isSubtree(r->right, s);
     }
     
-    bool isEqual(TreeNode* r, TreeNode* s) {
+    bool identicalTrees(TreeNode* r, TreeNode* s) {
         if (!r && !s) return true;
         else if (!r || !s) return false;
         
-        if (r->val != s->val) {
-            return false;
-        }
-        else {
-            return isEqual(r->right, s->right) && isEqual(r->left, s->left);
-        }
+        if (r->val == s->val) return identicalTrees(r->left, s->left) && identicalTrees(r->right, s->right);
+        else return false;
     }
 };
